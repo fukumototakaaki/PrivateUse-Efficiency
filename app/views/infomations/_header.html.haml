@@ -1,0 +1,25 @@
+.header
+  .header__container
+    .headerLogo
+      = icon('fas', 'cloud',class:"icon")
+      RAKUYAN
+
+    .headerRight
+      .search
+        =form_with class: "search__form" do |f|
+          =f.text_field :text, placeholder: "キーワードを入力ください", class: "search__form__text"
+          = button_tag type: 'submit', class: "search__form__submit" do
+            = icon('fas', 'search',class:"search__form__submit--icon")
+
+      .menu
+        .menu__category
+          =link_to "#", class: "menu__category__link" do
+            カテゴリーから探す
+
+        .menu__status
+          =link_to "#", class: "menu__status__link" do
+            ステータスから探す
+
+        .menu__news
+          =link_to "#", class: "menu__news__link" do
+            お知らせ
