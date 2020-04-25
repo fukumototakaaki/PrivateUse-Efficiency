@@ -1,0 +1,12 @@
+.sidebar{
+  width: 300px;
+  background-color: #ECECEC;
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, #F9F9F9), color-stop(.5, transparent), to(transparent));
+  -webkit-background-size: 5px;
+  float: left;
+  justify-content: space-between;
+  border-right: 4px solid white;
+  &__container{
+
+  }
+}
