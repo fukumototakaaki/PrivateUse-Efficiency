@@ -9,6 +9,10 @@
         = devise_error_messages!
         .field
           .field-label
+            区分
+          .field-input
+            = f.select :organization_type, [["---", ""], ["行政", value = 1],["企業", value = 2]]
+          .field-label
             = f.label :name
           .field-input
             = f.text_field :name, autofocus: true

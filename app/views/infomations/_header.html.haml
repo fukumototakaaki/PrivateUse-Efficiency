@@ -25,5 +25,5 @@
             お知らせ
 
         .menu__logout
-          =link_to "#", class: "menu__logout__link" do
+          =link_to destroy_user_session_path, method: :delete, class: "menu__logout__link" do
             ログアウト
