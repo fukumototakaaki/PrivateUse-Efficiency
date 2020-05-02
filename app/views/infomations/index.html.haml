@@ -1,8 +1,10 @@
-.header
+- if user_signed_in?
   = render "header"
-
-.sidebar
   = render "sidebar"
-
-.main
   = render "main"
+
+-else
+  =link_to new_user_registration_path do
+    サインイン
+  =link_to new_user_session_path do
+    ログイン
