@@ -1,0 +1,50 @@
+.applications__new
+  .contents
+    .contents__header
+      %h2
+        申請内容を入力
+
+    .contents__category
+      %label
+        カテゴリー
+
+    .contents__type
+      %label
+        申請種別
+
+    .contents__name
+      %label
+        申請先
+    
+    .contents__number
+      %label
+        申請番号
+          
+
+    .contents__facility
+      %label
+        対象物件
+      .contents__facility__form
+        工事なら図面と写真、更新なら総数が見える機能を実装（地中は検討中）
+
+    .contents__period
+      %label
+        期間
+
+    .contents__comment
+      %label
+        説明文
+      .contents__comment__form
+        = text_area :discription, class:"contents__comment__form__text", placeholder: "",maxlength: "1000"
+
+    .contents__status
+      %label
+        ステータス
+      .contents__status
+        新規登録or仮登録
+
+  .contents__btn
+    = link_to "#", class:"contents__btn__temporary" do
+      仮登録
+    = link_to "#", class:"contents__btn__registration" do
+      申請

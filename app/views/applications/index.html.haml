@@ -1,2 +1,14 @@
-%h1 Applications#index
-%p Find me in app/views/applications/index.html.haml
+= render "infomations/header"
+
+.applications
+  .application__new
+    =link_to new_application_path, class: "menu__new__link" do
+      新規作成
+
+  .application__edit
+    =link_to "#", class: "menu__edit__link" do
+      申請書修正
+
+  .application__show
+    =link_to "#", class: "menu__show__link" do
+      申請中
