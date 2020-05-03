@@ -14,16 +14,18 @@ ActiveRecord::Schema.define(version: 2020_04_25_052936) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "organization_type", null: false
-    t.string "name", null: false
-    t.string "email", default: ""
+    t.string "fastname", null: false
+    t.string "secondname", null: false
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_users_on_name", unique: true
+    t.index ["fastname"], name: "index_users_on_fastname", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["secondname"], name: "index_users_on_secondname", unique: true
   end
 
 end
