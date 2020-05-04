@@ -5,8 +5,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       ## Database authenticatable
       t.string :organization_type,  null: false
-      t.string :name,               null: false
-      t.string :email,              null: true, default: ""
+      t.string :fastname,           null: false
+      t.string :secondname,         null: false
+      t.string :email
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -38,7 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
 
-    add_index :users, :name,                  unique: true
+
     add_index :users, :reset_password_token,  unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
