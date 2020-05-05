@@ -3,6 +3,7 @@ class ApplicationsController < ApplicationController
   end
 
   def new
+    @license = License.new
   end
 
   def edit

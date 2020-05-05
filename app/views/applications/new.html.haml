@@ -1,50 +1,58 @@
 .applications__new
   .contents
-    .contents__header
-      %h2
-        申請内容を入力
+    = form_with model: @license, local: true, url: "#", class: "contents" do |f|
+      .contents__header
+        %h2
+          申請内容を入力
 
-    .contents__category
-      %label
-        カテゴリー
-
-    .contents__type
-      %label
-        申請種別
-
-    .contents__name
-      %label
-        申請先
-    
-    .contents__number
-      %label
-        申請番号
+      .contents__category
+        %label
+          カテゴリー
+        .contents__category__form
+          = f.select :category, [["---", ""], ["道路占用", value = 1],["普通財産", value = 2],["河川占用", value = 3]], class: "contents__category__select"
           
+      .contents__type
+        %label
+          申請種別
+        .contents__type__form
+          = f.select :type, [["---", ""], ["工事申請", value = 1],["期間更新", value = 2]], class: "contents__type__select"
 
-    .contents__facility
-      %label
-        対象物件
-      .contents__facility__form
-        工事なら図面と写真、更新なら総数が見える機能を実装（地中は検討中）
+      .contents__name
+        %label
+          申請先
+        .contents__name__form
+          = f.select :government_user_id, [["---", ""], ["世田谷区道路公園課", value = 1],["文京区道路課", value = 2],["東京都都市整備局管理係", value = 3],["国土交通省東京航空局施設課", value = 4]], class: "contents__name__select"
 
-    .contents__period
-      %label
-        期間
+      .contents__facility
+        %label
+          対象物件
+        .contents__facility__form
+          工事なら図面と写真、更新なら総数が見える機能を実装（地中は検討中）
 
-    .contents__comment
-      %label
-        説明文
-      .contents__comment__form
-        = text_area :discription, class:"contents__comment__form__text", placeholder: "",maxlength: "1000"
+      .contents__day
+        %label
+          期間
+        .contents__day__form
+          始期
+          != sprintf(f.date_select(:start_day, prefix:'start_day', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:2200, date_separator:'%s'),'年','月')+'日'
+          終期
+          != sprintf(f.date_select(:end_day, prefix:'start_day', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:2200, date_separator:'%s'),'年','月')+'日'
 
-    .contents__status
-      %label
-        ステータス
+
+      .contents__comment
+        %label
+          説明文
+        .contents__comment__form
+          = text_area :comment, class:"contents__comment__form__text", placeholder: "",maxlength: "1000"
+
       .contents__status
-        新規登録or仮登録
+        %label
+          ステータス
+        .contents__status__form
+          = f.select :type, [["---", ""], ["新規登録", value = 1],["仮登録", value = 2]], class: "contents__status__select"
 
-  .contents__btn
-    = link_to "#", class:"contents__btn__temporary" do
-      仮登録
-    = link_to "#", class:"contents__btn__registration" do
-      申請
+    .contents__btn
+      = link_to "#", class:"contents__btn__temporary" do
+        仮登録
+      = link_to "#", class:"contents__btn__registration" do
+        申請
