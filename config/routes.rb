@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root "infomations#index"
-  resources :budgets
   resources :users
+  resources :applications
   resources :facilitys
   resources :payments
-  resources :applications
   resources :licenses
+  resources :budgets
   resources :infomations
   resources :news
 end

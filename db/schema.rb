@@ -13,16 +13,13 @@
 ActiveRecord::Schema.define(version: 2020_05_04_105431) do
 
   create_table "licenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "type", null: false
-    t.string "number", null: false
-    t.integer "start_day", null: false
-    t.integer "end_day", null: false
-    t.string "comment"
-    t.string "status", null: false
-    t.integer "government_user_id", null: false
-    t.integer "company_user_id", null: false
+    t.string "type_name", null: false
+    t.string "rank", null: false
+    t.text "comment"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_licenses_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,4 +36,5 @@ ActiveRecord::Schema.define(version: 2020_05_04_105431) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "licenses", "users"
 end
