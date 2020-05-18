@@ -13,8 +13,15 @@
 ActiveRecord::Schema.define(version: 2020_05_04_105431) do
 
   create_table "licenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category", null: false
     t.string "type_name", null: false
     t.string "rank", null: false
+    t.integer "start_year", null: false
+    t.integer "start_month", null: false
+    t.integer "start_date", null: false
+    t.integer "end_year", null: false
+    t.integer "end_month", null: false
+    t.integer "end_date", null: false
     t.text "comment"
     t.bigint "user_id"
     t.datetime "created_at", null: false

@@ -35,17 +35,35 @@
         %label
           期間
         .contents__day__form
-          始期
-          != sprintf(f.date_select(:start_day, prefix:'start_day', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:2200, date_separator:'%s'),'年','月')+'日'
-          終期
-          != sprintf(f.date_select(:end_day, prefix:'start_day', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:2200, date_separator:'%s'),'年','月')+'日'
+          = f.label "始期"
+          %br/
+          = f.number_field :start_year, class: "contents__day__form__text", placeholder: "--"
+          %span.date 年
+          = f.number_field :start_month, class: "contents__day__form__text", placeholder: "--"
+          %span.date 月
+          = f.number_field :start_date, class: "contents__day__form__text", placeholder: "--"
+          %span.date 日
+
+          %br/
+          = f.label "終期"
+          %br/
+          = f.number_field :end_year, class: "contents__day__form__text", placeholder: "--"
+          %span.date 年
+          = f.number_field :end_month, class: "contents__day__form__text", placeholder: "--"
+          %span.date 月
+          = f.number_field :end_date, class: "contents__day__form__text", placeholder: "--"
+          %span.date 日
+          -# = f.date_select :start_day, {prompt:"--", use_month_numbers: true}, {class: 'time-box'}
+          -# != sprintf(f.date_select(:start_day, prefix:'start_day', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:2200, date_separator:'%s'),'年','月')+'日'
+          -# = f.date_select :end_day, {prompt:"--", use_month_numbers: true}, {class: 'time-box'}
+          -# != sprintf(f.date_select(:end_day, prefix:'end_day', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:2200, date_separator:'%s'),'年','月')+'日'
 
 
       .contents__comment
         %label
           説明文
         .contents__comment__form
-          = text_area :comment, class:"contents__comment__form__text", placeholder: "",maxlength: "1000"
+          = f.text_field :comment, class:"contents__comment__form__text", placeholder: "",maxlength: "100"
 
       .contents__status
         %label
