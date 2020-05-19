@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_105431) do
     t.integer "end_month", null: false
     t.integer "end_date", null: false
     t.text "comment"
+    t.integer "government_user_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

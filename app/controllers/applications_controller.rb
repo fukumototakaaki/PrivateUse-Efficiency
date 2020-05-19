@@ -8,6 +8,7 @@ class ApplicationsController < ApplicationController
     else
       redirect_to new_user_session_path
     end
+    @users = User.all
   end
 
   def create
@@ -23,6 +24,6 @@ class ApplicationsController < ApplicationController
 
   private
   def license_params
-    params.require(:license).permit(:category,:type_name, :rank, :comment, :start_year, :start_month, :start_date, :end_year, :end_month, :end_date).merge(user_id: current_user.id)
+    params.require(:license).permit(:category,:type_name, :rank, :comment, :start_year, :start_month, :start_date, :end_year, :end_month, :end_date, :government_user_id).merge(user_id: current_user.id)
   end
 end

@@ -23,7 +23,7 @@
         %label
           申請先
         .contents__name__form
-          = f.select :government_user_id, License.government_user_ids.keys.to_a, include_blank: "---", class: "contents__name__select"
+          = f.select :government_user_id, @users.map{|user|[user.fastname+user.secondname,user.id,{"fastname":user.fastname}]}, include_blank: "---", class: "contents__name__select"
 
       .contents__facility
         %label
@@ -35,7 +35,7 @@
         %label
           期間
         .contents__day__form
-          = f.label "始期"
+          始期
           %br/
           = f.number_field :start_year, class: "contents__day__form__text", placeholder: "--"
           %span.date 年
@@ -45,7 +45,7 @@
           %span.date 日
 
           %br/
-          = f.label "終期"
+          終期
           %br/
           = f.number_field :end_year, class: "contents__day__form__text", placeholder: "--"
           %span.date 年

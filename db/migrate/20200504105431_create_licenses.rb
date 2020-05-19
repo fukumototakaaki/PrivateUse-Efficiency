@@ -13,7 +13,7 @@ class CreateLicenses < ActiveRecord::Migration[5.2]
       t.integer :end_date,           null: false
       t.text :comment
       # t.integer :status,              null: false
-      # t.integer :government_user_id,  null: false
+      t.integer :government_user_id,  null: false
       t.references :user, foreign_key: true
       t.timestamps
     end
